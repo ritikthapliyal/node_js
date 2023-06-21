@@ -12,8 +12,6 @@ app.use('/users',usersRouter)
 
 
 
-
-
 // app.use((req,res,next)=>{
 //     req.body.name = `lassan ${req.body.name}`
 //     next()
