@@ -1,34 +1,14 @@
 const express = require('express')
 const app = express()
 
+const toursRouter = require('./routes/toursRouter')
+const usersRouter = require('./routes/usersRouter')
+
 app.use(express.json())
 
-const toursRouter = express.Router()
-const usersRouter = express.Router()
-
-//tours
 
 app.use('/tours',toursRouter)
-
-toursRouter.get('/',(req,res)=>{
-    res.json({message : "This is tours route"})
-})
-toursRouter.get('/:id',(req,res)=>{
-    res.json({message : `This is tours route with id ${req.params.id}`})
-})
-
-
-
-//users
-
-app.get('/users',(req,res)=>{
-    console.log(req.query)
-    res.json({message : "This is users route"})
-})
-
-app.get('/users/:id',(req,res)=>{
-    res.json({message : `This is users route with id ${req.params.id}`})
-})
+app.use('/users',usersRouter)
 
 
 
