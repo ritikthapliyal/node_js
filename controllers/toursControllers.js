@@ -6,6 +6,13 @@ const checkID = (req,res,next,val)=>{
     next()
 }
 
+const extraMiddleware = (req,res,next)=>{
+    console.log(`This is the extra Middleware`)
+    console.log(`Assume this is doing some work`)
+    console.log(`Work done...`)
+    next()
+}
+
 const toursRoute = (req,res)=>{
     // console.log(req.query)
     res.json({message : "This is tours route"})
@@ -16,5 +23,5 @@ const toursRouteWithId = (req,res)=>{
 }
 
 module.exports = {
-    toursRoute, toursRouteWithId, checkID
+    toursRoute, toursRouteWithId, checkID , extraMiddleware
 }
