@@ -1,7 +1,9 @@
 const express = require('express')
-const {toursRoute, toursRouteWithId} = require('../controllers/toursControllers')
+const {toursRoute, toursRouteWithId, checkID} = require('../controllers/toursControllers')
 
 const router = express.Router()
+
+router.param('id',checkID)
 
 router.get('/',toursRoute)
 
