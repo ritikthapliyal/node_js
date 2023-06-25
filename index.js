@@ -1,6 +1,12 @@
 const express = require('express')
 const app = express()
 
+
+const dotenv = require('dotenv')
+dotenv.config({path:'./config.env'})
+
+
+
 const toursRouter = require('./routes/toursRouter')
 const usersRouter = require('./routes/usersRouter')
 
@@ -26,7 +32,9 @@ app.use('/users',usersRouter)
 //     res.json({message : `Hello ${name}`})
 // })
 
-const PORT = 5000
+const PORT = process.env.PORT || 5001
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
 })
+
+
